@@ -47,13 +47,19 @@ class Orbits:
 
 # intilizing instances 
 p1 = Planet(518,332, 0,0, 1000, 'red', 60, 1)
-p2 = Planet(289, 304, 0,0, 400,'blue',30,2)
+p2 = Planet(139, 453, 0,0, 400,'blue',30,2)
 p2.theta = 0
-o1 = Orbits(110, (0,0,0), p1.x_pos,p1.y_pos,9 )
+
+
+dx = p2.x_pos - p1.x_pos
+dy = p2.y_pos - p1.y_pos
+radius = math.sqrt(dx*dx + dy*dy)
+
+o1 = Orbits(radius, 'silver', p1.x_pos,p1.y_pos,9 )
 
 # variables 
 angular_speed = 0.02
-Force = (Gravitation*p1.mass*p2.mass)/o1.radius*2
+Force = (Gravitation*p1.mass*p2.mass)/radius*2
 print(f"Force = ",Force)
 
 
